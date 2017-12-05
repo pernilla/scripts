@@ -1,0 +1,6 @@
+#!/bin/bash
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REPO=$(git config --get remote.origin.url | sed 's/\.git//' | sed 's/git@github.com:/https:\/\/www.github.com\//')
+git push --set-upstream origin $BRANCH
+open $REPO/compare/$BRANCH?expand=
